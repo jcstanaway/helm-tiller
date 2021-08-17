@@ -8,8 +8,8 @@ cd "$HELM_PLUGIN_DIR"
 unameOut="$(uname -s)"
 
 case "${unameOut}" in
-    Linux*)     OS=Linux;;
-    Darwin*)    OS=Darwin;;
+    Linux*)     OS=linux;;
+    Darwin*)    OS=darwin;;
     *)          OS="UNKNOWN:${unameOut}"
 esac
 
@@ -26,7 +26,7 @@ os="$(echo "${OS}" | tr '[A-Z]' '[a-z]')"
 
 if [[ ${COMPARE_VERSION} -ge 0 ]]; then
   # Helm v2.11 and versions above
-  URL=https://storage.googleapis.com/kubernetes-helm/helm-v"${VERSION}"-"${os}"-amd64.tar.gz
+  URL=https://get.helm.sh/helm-v"${VERSION}"-"${os}"-amd64.tar.gz
 else
   # Helm v2.10 and versions below
   URL=https://storage.googleapis.com/helm-tiller/tiller-v"${VERSION}"_"${OS}"_x86_64.tgz
